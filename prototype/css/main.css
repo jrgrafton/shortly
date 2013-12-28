@@ -1,0 +1,117 @@
+/**************************/
+/** ------ Global ------ **/
+/**************************/
+body {
+    font-family: 'Droid Sans', serif;
+    font-size: 14px;
+	background-image: url('/webapp/style/app/common/images/bg-1x.11437c43.png');
+	background-repeat: repeat;
+	background-color: #E3E3E3;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+.no-padding-left {
+	padding-left: 0px;
+}
+
+.no-margin {
+	margin: 0px;
+}
+
+table thead {
+	font-size: 1.14285714285714285714em; /* 16px */
+	font-weight: bold;
+}
+
+.container.content {
+	max-width: 500px;
+	padding-top: 10%;
+}
+
+/******************************/
+/** ------ End global ------ **/
+/******************************/
+
+
+/****************************/
+/** ------ Specific ------ **/
+/****************************/
+
+#input-shorten {
+	width: 100%;
+}
+
+.visible-xs #input-shorten {
+	margin-top: 5px;
+}
+
+.row.results {
+	margin-top: 10px;
+}
+
+.has-error label {
+	margin-bottom: 0px;
+}
+
+/********************************/
+/** ------ End specific ------ **/
+/********************************/
+
+/************************/
+/** ------ Logo ------ **/
+/************************/
+.logo, .strapline {
+	text-align: center;
+}
+
+.logo {
+    font-family: 'Lobster', serif;
+    font-size: 4.28571428571428571429em; /* 60px */
+}
+
+.strapline {
+    font-family: 'Droid Serif', serif;
+	font-size: 1.14285714285714285714em; /* 16px */
+}
+
+/****************************/
+/** ------ End logo ------ **/
+/****************************/
+
+
+/***************************************/
+/** ------ Bootstrap overrides ------ **/
+/***************************************/
+input {
+	border-radius: 0px !important;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}
+
+hr {
+	border-top: 1px solid #CCC;
+	margin: 10px 0px 10px 0px;
+}
+
+.table > tbody > tr > td {
+	border-top: 1px solid #d1d1d1;
+}
+
+/*******************************************/
+/** ------ End bootstrap overrides ------ **/
+/*******************************************/
+
+
+/******************************/
+/** ------ Animations ------ **/
+/******************************/
+
+
+/**********************************/
+/** ------ End animations ------ **/
+/**********************************/
