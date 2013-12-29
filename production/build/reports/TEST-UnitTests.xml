@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="PhantomJS 1.9.2 (Mac OS X)" package="" timestamp="2013-12-29T17:06:02" id="0" hostname="james-macbook-pro.home" tests="11" errors="0" failures="0" time="0.004">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.2 Safari/534.34"/>
+    </properties>
+    <testcase name="asks for the players to be primarily in descending score order, then in alphabetical order and returns as is" time="0.002" classname="PhantomJS 1.9.2 (Mac OS X).Template_leaderboard_players"/>
+    <testcase name="returns player when player is found and has a name" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Template_leaderboard_selected_name"/>
+    <testcase name="returns undefined when player.name isn&apos;t present" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Template_leaderboard_selected_name"/>
+    <testcase name="returns undefined when player doesn&apos;t exist" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Template_leaderboard_selected_name"/>
+    <testcase name="returns selected when the selected player in the session matches player in the current template" time="0.001" classname="PhantomJS 1.9.2 (Mac OS X).Template_player_selected"/>
+    <testcase name="returns empty string when the selected player in the session doesn&apos;t matches player in the current template" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Template_player_selected"/>
+    <testcase name="updates the player score by 5 when input.inc is clicked" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Template_leaderboard [click input_inc] event"/>
+    <testcase name="clicking a player sets them to the selected player in the session" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Template_player [click] event"/>
+    <testcase name="is only added once to the Meteor.Collection" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Players model"/>
+    <testcase name="inserts players into the Players collection if it&apos;s empty" time="0.001" classname="PhantomJS 1.9.2 (Mac OS X).Meteor startup"/>
+    <testcase name="doesn&apos;t insert players into the Players collection if there are players in there already" time="0" classname="PhantomJS 1.9.2 (Mac OS X).Meteor startup"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>
