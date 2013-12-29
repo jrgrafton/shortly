@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Leaderboard functionality" errors="0" tests="1" failures="0" time="8.321" timestamp="2013-12-29T17:06:02">
-  <testcase classname="Leaderboard functionality" name="increases a players score by 5 when the increment button is clicked" time="8.32"></testcase>
-</testsuite>
-</testsuites>

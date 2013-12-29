@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    Template.leaderboard.players = function () {
+    /* Template.leaderboard.players = function () {
         return Players.find({}, {sort: {score: -1, name: 1}});
     };
 
@@ -24,6 +24,5 @@
         'click': function () {
             Session.set("selected_player", this._id);
         }
-    });
-
+    }); */
 })();

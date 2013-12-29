@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Test coverage checker" errors="0" tests="1" failures="0" time="1.324" timestamp="2013-12-29T17:06:12">
-  <testcase classname="Test coverage checker" name="checks the coverage results against the thresholds" time="1.323"></testcase>
-</testsuite>
-</testsuites>
