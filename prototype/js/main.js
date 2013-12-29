@@ -57,6 +57,10 @@ var Shortly = (function($) {
 		},
 
 		__processResult : function(url, shortenedUrl) {
+			// Restrict max length of original url
+			if(url.length > 43) {
+				url = url.substring(0, 40) + '...';
+			}
 			var url = '<a href="' + url + '" target="_blank">' + url + '</a>';
 			var shortenedUrl = '<a href="' + shortenedUrl + '" target="_blank">' + shortenedUrl + '</a>';
 			var resultHTML = '<tr><td>' + url + '</td><td>' + shortenedUrl + '</td><tr>';
