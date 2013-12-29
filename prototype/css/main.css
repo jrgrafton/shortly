@@ -25,6 +25,10 @@ body {
 	margin: 0px;
 }
 
+.lobster {
+	font-family: 'Lobster', serif;
+}
+
 table thead {
 	font-size: 1.14285714285714285714em; /* 16px */
 	font-weight: bold;
@@ -33,6 +37,10 @@ table thead {
 .container.content {
 	max-width: 500px;
 	padding-top: 10%;
+}
+
+h1 {
+    font-size: 4.28571428571428571429em; /* 60px */
 }
 
 /******************************/
