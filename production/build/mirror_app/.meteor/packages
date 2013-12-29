@@ -9,7 +9,7 @@ preserve-inputs
 accounts-ui
 accounts-password
 standard-app-packages
-
+iron-router
 
 http
 istanbul-middleware-port

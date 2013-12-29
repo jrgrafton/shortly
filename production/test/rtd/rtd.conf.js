@@ -33,7 +33,7 @@ module.exports = {
             exclude: '**/do_not_cover/**'
         },
         jshint: {
-            enabled: true,
+            enabled: false,
             // if you want to customize jslint options for app and/or test code, you can do that here
             appOptions: {},
             testOptions: {}
