@@ -1,9 +1,10 @@
 (function () {
     "use strict";
 
+    /************************************/
+    /** ------ Global utilities ------ **/
+    /************************************/
     jasmine.getEnv().defaultTimeoutInterval = 20000;
-
-    // GENERIC MIXIN
     var http = require('http'),
         request = require('request'),
         webdriver = require('../rtd/node_modules/selenium-webdriver'),
@@ -111,105 +112,33 @@
         console.error('Error in acceptance tests');
     };
 
-    // ****************************************************************************************
+    /*****************************************/
+    /** ------ End global utilities ------- **/
+    /*****************************************/
 
-    var setupPlayers = function () {
-        return driver.get('http://localhost:8000/setupPlayers');
+    /***********************************/
+    /** ------ Test utilities ------- **/
+    /***********************************/
+
+    // Load fixture data
+    var setupUrls = function () {
+        return driver.get('http://localhost:8000/setupUrls');
     };
 
-    var authenticate = function () {
-        var email = 'some@one.com';
-        var password = 'test1234';
-        var deferred = webdriver.promise.defer();
-        driver.findElement(webdriver.By.id('login-sign-in-link')).click();
-        driver.findElement(webdriver.By.id('login-email')).sendKeys(email);
-        driver.findElement(webdriver.By.id('login-password')).sendKeys(password);
-        driver.findElement(webdriver.By.id('signup-link')).click();
-        driver.findElement(webdriver.By.id('login-buttons-password')).click();
-        driver.findElement(webdriver.By.id('login-name-link')).getText()
-            .then(function (value) {
-                if (value.indexOf(email) !== 0) {
-                    deferred.rejected(value + ' did not contain ' + email);
-                } else {
-                    deferred.resolve();
-                }
-            });
-        return deferred.promise;
-    };
+    /***************************************/
+    /** ------ End test utilities ------- **/
+    /***************************************/
+    
 
-    var findPlayerByName = function (name) {
-        return function () {
-
-            var mainDefer = webdriver.promise.defer();
-
-            driver.findElements(webdriver.By.className('player')).then(function (players) {
-
-                var matchDefer = webdriver.promise.defer(),
-                    matchPromise = matchDefer.promise,
-                    resolved;
-
-                players.map(function (player) {
-                    player.findElement(webdriver.By.className('name')).then(function (playerName) {
-                        flow.execute(function () {
-                            playerName.getText().then(function (value) {
-                                if (value === name) {
-                                    resolved = true;
-                                    matchDefer.resolve(player);
-                                }
-                            });
-                        });
-                    });
-                });
-
-                flow.execute(function () {
-                    matchPromise.then(function (player) {
-                        mainDefer.resolve(player);
-                    });
-                    expect(resolved).toBe(true);
-                });
-
-            });
-            return mainDefer.promise;
-        };
-    };
-
-    var selectPlayer = function (player) {
-        return player.click();
-    };
-
-    var giveThemFivePoints = function (player) {
-        var mainDefer = webdriver.promise.defer();
-        driver.findElement(webdriver.By.className('inc')).then(function (inc) {
-            inc.click();
-            mainDefer.resolve(player);
-        });
-        return mainDefer.promise;
-    };
-
-    var verifyTheirScoreIs = function (player, points) {
-        var mainDefer = webdriver.promise.defer();
-        player.findElement(webdriver.By.className('score')).then(function (playerScore) {
-            playerScore.getText().then(function (value) {
-                expect(parseInt(value, 10)).toBe(points);
-                mainDefer.resolve(player);
-            });
-        });
-        return mainDefer.promise;
-    };
-
-    var verifyTheirScoreIs10 = function (player) {
-        return verifyTheirScoreIs(player, 10);
-    };
-
-    var verifyTheirScoreIs15 = function (player) {
-        return verifyTheirScoreIs(player, 15);
-    };
-
+    /*********************************/
+    /** ------ Actual tests ------- **/
+    /*********************************/
     beforeEach(function () {
+	    // Reset DB data and open app
         var ready = false;
         waitForWebdriver(function () {
             resetApp().
-                then(setupPlayers).
+                then(setupUrls).
                 then(openApp).
                 then(function () {
                     ready = true;
@@ -221,6 +150,7 @@
     });
 
     afterEach(function() {
+	    // Post back code that was covered as part of these tests
         var ready = false;
         postBackCoverage().then(function () {
             ready = true;
@@ -230,20 +160,58 @@
         }, "Coverage didn't postback", 10000);
     });
 
-    describe("Leaderboard functionality", function () {
+    describe("Url shortening functionality", function () {
+	    var deferred = webdriver.promise.defer();
 
-        it("increases a players score by 5 when the increment button is clicked", function (done) {
-            authenticate().
-                then(findPlayerByName('Grace Hopper')).
-                then(verifyTheirScoreIs10).
-                then(selectPlayer).
-                then(giveThemFivePoints).
-                then(findPlayerByName('Grace Hopper')).
-                then(verifyTheirScoreIs15).
-                then(function () {
-                    done();
-                }, error);
+        it("Will trigger an erronous state when an invalid URL is entered", function (done) {	
+	        // @TODO: get this working via driver.wait without it RTD failing it				
+			setTimeout(function() {
+				driver.findElement(webdriver.By.css('#input-shorten')).click();
+				// Test for invalid state
+				try {
+					driver.findElement(webdriver.By.css('.form-group.has-error'));
+					expect('Error elements present').toBe('Error elements present');
+
+					// Cover failed branch
+					driver.findElement(webdriver.By.css('#input-url')).sendKeys("http://");
+					driver.findElement(webdriver.By.css('#input-shorten')).click();
+
+					// Try typing in field to ensure error is not visible
+					driver.findElement(webdriver.By.css('#input-url')).sendKeys("google.com");
+					driver.findElement(webdriver.By.css('#input-shorten')).click();
+					driver.findElement(webdriver.By.css('.error-label')).then(function(errorLabel) {
+						errorLabel.isDisplayed().then(function(isDisplayed) {
+						    expect(isDisplayed).toBe(false);
+						})
+					});
+				} catch(exception) {
+					expect('Error elements present').toBe('Error elements not present');
+				} finally {
+					// So that animation can be hit for code coverage
+					setTimeout(function() {
+						done();
+					}, 500);
+				}
+			}, 1000);
         });
+
+
+        it("Will trigger a result state when a valid URL is entered", function (done) {
+			// @TODO: get this working via driver.wait without it RTD failing it					
+			setTimeout(function() {
+				driver.findElement(webdriver.By.css('#input-url')).sendKeys("http://oneseriouslyverylongnoimeanreallylongurl.com");
+				driver.findElement(webdriver.By.css('#input-shorten')).click();
+				driver.findElement(webdriver.By.css('.table-responsive')).then(function(resultsTable) {
+					resultsTable.isDisplayed().then(function(isDisplayed) {
+					    expect(isDisplayed).toBe(true);
+					    done();
+					});
+				});
+			}, 1000);
+	    });
+
+
+
 
 
 //        it("can have a more test here for this spec...", function (done) {
@@ -251,5 +219,9 @@
 //        });
 
     });
+
+    /******************************/
+    /** ------ End tests ------- **/
+    /******************************/
 
 })();

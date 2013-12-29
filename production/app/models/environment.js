@@ -1,4 +1,4 @@
-// Namespace different modules to ensure transparency
-/* var Models = {
+// Namespace models to improve code readability
+Models = {
 	URL : URL
-}; */
+};

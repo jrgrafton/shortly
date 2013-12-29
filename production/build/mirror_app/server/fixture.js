@@ -20,24 +20,24 @@
 
     var reset = function () {
         Meteor.users.remove({});
-        Players.remove({});
+        URL.remove({});
     };
 
-    var setupPlayers = function () {
-        var names = ["Ada Lovelace",
+    var setupUrls = function () {
+        /* var names = ["Ada Lovelace",
             "Grace Hopper",
             "Marie Curie",
             "Carl Friedrich Gauss",
             "Nikola Tesla",
             "Claude Shannon"];
         for (var i = 0; i < names.length; i += 1) {
-            Players.insert({name: names[i], score: i * 10});
-        }
+            URL.insert({name: names[i], score: i * 10});
+        } */
     };
 
     Meteor.startup(function () {
         reset();
         createRoute('reset', reset);
-        createRoute('setupPlayers', setupPlayers);
+        createRoute('setupUrls', setupUrls);
     });
 })();

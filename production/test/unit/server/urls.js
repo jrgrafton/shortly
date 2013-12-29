@@ -4,7 +4,7 @@
 
     describe("Meteor startup", function () {
 
-        it("inserts players into the Players collection if it's empty", function () {
+        /* it("inserts players into the Players collection if it's empty", function () {
             spyOn(Players, 'find').andReturn({ count: function () {
                 return 0;
             } });
@@ -22,7 +22,7 @@
             Meteor.runStartupMethods();
             expect(Players.find.calls.length).toEqual(1);
             expect(Players.insert.calls.length).toEqual(0);
-        });
+        }); */
 
     });
 

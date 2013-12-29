@@ -1,11 +1,9 @@
 (function () {
-
     "use strict";
 
-    describe("Players model", function () {
-
+    describe("url model", function () {
         it("is only added once to the Meteor.Collection", function () {
-            expect(Meteor.instantiationCounts.players).toBe(1);
+            expect(Meteor.instantiationCounts.url).toBe(1);
         });
 
     });
