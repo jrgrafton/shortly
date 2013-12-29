@@ -1,1 +1,0 @@
-URL = new Meteor.Collection("url");
