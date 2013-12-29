@@ -42,25 +42,25 @@
 		        </div>
 	        </div>
 	        <div class="row">
-	        	<form role="form">
+	        	<form role="form" class="shorten-url">
 			        <div class="col-sm-9">				        
-				        <div class="form-group has-error">
+				        <div class="form-group">
 					        <input type="url" name="url" class="form-control" id="input-url" placeholder="URL to shorten">
 					    </div>
 			        </div>
 			        <div class="col-sm-3 hidden-xs no-padding-left">
 				        <div class="form-group">
-					        <input type="button" class="btn btn-primary" id="input-shorten" value="Shorten">
+					        <input type="submit" class="btn btn-primary" id="input-shorten" value="Shorten">
 					    </div>	        
 			        </div>
-			        <div class="col-sm-12">
+			        <div class="col-sm-12 error-label">
 				        <div class="form-group has-error">
-		        			<label class="control-label" for="inputError">Input with error</label>
+		        			<label class="error-label control-label" for="inputError">Please input a valid URL</label>
 				        </div>
 			        </div>
 			        <div class="col-sm-12 visible-xs">
 				        <div class="form-group">
-					        <input type="button" class="btn btn-primary" id="input-shorten" value="Shorten">
+					        <input type="submit" class="btn btn-primary" id="input-shorten" value="Shorten">
 					    </div>	        
 			        </div>
 		        </form>
@@ -76,16 +76,7 @@
 							        <td>Short URL</td>
 						        </tr>
 					        </thead>
-					        <tbody>
-						        <tr>
-							        <td><a href="http://google.com">http://google.com</a></td>
-							        <td><a href="http://short.ly/kaj8">http://shrt.ly/kaj8</a></td>
-						        </tr>
-						        <tr>
-							        <td><a href="http://testing.com">http://testing.com</a></td>
-							        <td><a href="http://short.ly/kaj9">http://shrt.ly/kaj9</a></td>
-						        </tr>
-					        </tbody>
+					        <tbody></tbody>
 				        </table>
 			        </div>
 		        </div>

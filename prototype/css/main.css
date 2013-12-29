@@ -1,10 +1,14 @@
 /**************************/
 /** ------ Global ------ **/
 /**************************/
+html, body {
+	height: 100%;
+}
+
 body {
     font-family: 'Droid Sans', serif;
     font-size: 14px;
-	background-image: url('/webapp/style/app/common/images/bg-1x.11437c43.png');
+	background-image: url('../img/bg.png');
 	background-repeat: repeat;
 	background-color: #E3E3E3;
 }
@@ -48,12 +52,21 @@ table thead {
 	margin-top: 5px;
 }
 
-.row.results {
-	margin-top: 10px;
-}
-
 .has-error label {
 	margin-bottom: 0px;
+}
+
+.error-label {
+	display: none;
+}
+
+hr {
+	display: none;
+}
+
+.row.results {
+	margin-top: 10px;
+	display: none;
 }
 
 /********************************/
