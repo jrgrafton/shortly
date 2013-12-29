@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Url shortening functionality" errors="0" tests="2" failures="0" time="5.86" timestamp="2013-12-29T23:34:53">
-  <testcase classname="Url shortening functionality" name="Will trigger an erronous state when an invalid URL is entered" time="4.194"></testcase>
-  <testcase classname="Url shortening functionality" name="Will trigger a result state when a valid URL is entered" time="1.666"></testcase>
-</testsuite>
-</testsuites>
