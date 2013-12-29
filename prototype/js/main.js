@@ -42,6 +42,12 @@ var Shortly = (function($) {
 		__activateInvalidState : function() {
 			$('.form-group').addClass('has-error');
 			$('.error-label').show();
+
+			$('#input-url').removeClass('pulse animated');
+			// Since instantly switching classes doesn't trigger animation
+			setTimeout(function() {
+				$('#input-url').addClass('pulse animated');
+			}, 100);
 		},
 		
 		__deactivateInvalidState : function() {
@@ -70,6 +76,7 @@ var Shortly = (function($) {
 		__activateResultsState : function() {
 			$('hr').show();
 			$('.row.results').show();
+			$('.row.results').addClass('fadeIn animated');
 		}
 	};
 
