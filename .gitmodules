@@ -1,0 +1,3 @@
+[submodule "production/test/rtd"]
+	path = production/test/rtd
+	url = git@github.com:xolvio/rtd.git
