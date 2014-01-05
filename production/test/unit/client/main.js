@@ -7,8 +7,7 @@
     Template.stub('notFound');
 
     // Testing OO front end JS that does not modify UI elements
-    describe("OO front end JS", function () {
-	    
+    describe("Front end JS", function () {
         it("Can be constructed without error", function () {
 	        var shortly = new Shortly();
             expect(shortly).not.toBeNull();

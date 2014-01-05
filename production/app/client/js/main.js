@@ -56,10 +56,11 @@ Shortly = (function() {
 		},
 
 		__submitURL : function(url) {
-			// Submit to backend
-			// Add result to backened
-			_this.__processResult(url, window.location.protocol + '//' + window.location.hostname + '/' + (Math.random().toString(36).substring(7)).substring(0, 5));
-			_this.__activateResultsState();
+			// Call Meteor backend function
+			Meteor.call("URL__get_url_for_input", url, function(error, shortURL) {
+				_this.__processResult(url, window.location.origin + '/' + shortURL);
+				_this.__activateResultsState();
+        	});
 		},
 
 		__processResult : function(url, shortenedUrl) {

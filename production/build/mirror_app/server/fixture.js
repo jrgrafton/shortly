@@ -20,8 +20,8 @@
 
     var reset = function () {
         Meteor.users.remove({});
-        URL.remove({});
-    };
+        Meteor.Models.URL.remove({});
+    }; 
 
     var setupUrls = function () {
         /* var names = ["Ada Lovelace",

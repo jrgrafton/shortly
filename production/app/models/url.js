@@ -1,0 +1,1 @@
+Meteor.Models.URL = new Meteor.Collection("URL");
