@@ -210,6 +210,31 @@
 			}, 1000);
 	    });
 
+        it("Will generate the same output URL when the same input URL is input", function (done) {
+			// @TODO: get this working via driver.wait without it RTD failing it					
+			setTimeout(function() {
+				driver.findElement(webdriver.By.css('#input-url')).sendKeys("http://google.com");
+				driver.findElement(webdriver.By.css('#input-shorten')).click();
+				setTimeout(function() {
+					driver.findElement(webdriver.By.css('#input-shorten')).click();
+					driver.findElements(webdriver.By.css('.url-shortened')).then(function(elements) {
+						var values = new Array();
+						elements.map(function(element) {
+							element.getText().then(function(value) {
+								values.push(value);
+								if(values.length === 2) {
+									expect(values[0]).toBe(values[1]);
+									done();
+								}
+							})
+							//done();
+						})
+					});
+				}, 2000);
+
+			}, 2000);
+	    });
+
 
 
 

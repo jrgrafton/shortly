@@ -70,7 +70,7 @@ Shortly = (function() {
 			}
 			var url = '<a href="' + url + '" target="_blank">' + url + '</a>';
 			var shortenedUrl = '<a href="' + shortenedUrl + '" target="_blank">' + shortenedUrl + '</a>';
-			var resultHTML = '<tr><td>' + url + '</td><td>' + shortenedUrl + '</td><tr>';
+			var resultHTML = '<tr><td>' + url + '</td><td class="url-shortened">' + shortenedUrl + '</td><tr>';
 			$('.row.results .table tbody').prepend(resultHTML);
 		},
 		
