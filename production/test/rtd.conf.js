@@ -7,7 +7,7 @@ module.exports = {
     output: {
         debug: true,           // enables all outputs. This is also switched on if you run grunt --debug
         appOutput: true,       // this shows the output from the 'meteor run' command
-        mirrorOutput: true,    // this shows the output from the 'meteor run' command on the mirror app
+        mirrorOutput: false,    // this shows the output from the 'meteor run' command on the mirror app
         karma: true            // shows Karma's output
     },
     options: {
@@ -37,6 +37,15 @@ module.exports = {
             // if you want to customize jslint options for app and/or test code, you can do that here
             appOptions: {},
             testOptions: {}
+            // set additional directories to ignore ie:
+            // src: ['!<%= basePath %>/app/client/javascripts/vendor/*.js']
+            // src: []
+        },
+        coffeelint: {
+            enabled: true,
+            // if you want to customize coffeelint options for app and/or test code, you can do that here
+            appOptions: {},
+            testOptions: {}
         },
         // if you have client libraries, you'll want to exclude them from test coverage
         instrumentationExcludes: ['**/packages/**', '**/3rd/**', 'fixture.js', 'fixture.coffee'],
@@ -46,16 +55,16 @@ module.exports = {
     selenium: {
         // You can set specific versions of selenium-server / chromedriver to use here
         darwin: {
-            chromeDriverName: 'chromedriver2',
+            chromeDriverName: 'chromedriver',
             chromeDriverOs: 'mac32',
-            chromeDriverVersion: '0.8',
-            chromeDriverSha: '5a485bb73a7e85a063cffaab9314837a00b98673'
+            chromeDriverVersion: '2.6',
+            chromeDriverSha: '4643652d403961dd9a9a1980eb1a06bf8b6e9bad'
         },
         linux: {
             chromeDriverName: 'chromedriver',
             chromeDriverOs: 'linux64',
-            chromeDriverVersion: '2.0',
-            chromeDriverSha: 'd6c78f1bd48ab74d3c66e779ee2a5b70fc2937fb'
+            chromeDriverVersion: '2.9',
+            chromeDriverSha: '6d8498437795482bb82739e13dfc13e4bcfdd40b'
         },
         seleniumServeVersion: '2.32.0',
         seleniumServeSha: 'c94e6d5392b687d3a141a35f5a489f50f01bef6a'
