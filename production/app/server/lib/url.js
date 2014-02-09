@@ -10,7 +10,7 @@ Meteor.Libraries.URL = (function() {
 
 	URL.prototype = {
 		constructor : URL,
-		getURLForInput : function(input) {
+		getShortURLForInput : function(input) {
 			if(!_this.__isShortenedAlready(input)) {
 				// Last generated URL (or 'aaa')
 				var lastURL = _this.__getLastURL();
@@ -21,10 +21,19 @@ Meteor.Libraries.URL = (function() {
 			return _this.__getShortURL(input);
 		},
 
+		getOriginalURLForInput : function(input) {
+			// Return result
+			return _this.__getOriginalURL(input); 
+		},
+		
+
 		__setupMeteorMethods : function() {
-			Meteor.methods({
-				URL__get_url_for_input : function(input) { return _this.getURLForInput(input); }
-			});
+			try {
+				Meteor.methods({
+					URL__get_short_url_for_input : function(input) { return _this.getShortURLForInput(input); }
+				});
+			}
+			catch(e){}
 		},
 
 		__getNextURL : function(shortURL) {
@@ -59,11 +68,12 @@ Meteor.Libraries.URL = (function() {
 			return true;
 		},
 		__getOriginalURL : function(shortURL){
-			return Meteor.Models.URL.find({urlShortened : shortURL}).fetch();
+			var result = Meteor.Models.URL.findOne({urlShortened : shortURL});
+			return (result == null)? null : result.urlOriginal
 		},
 		__getShortURL : function(URL){
-			console.log("Fetch: " + URL);
-			return Meteor.Models.URL.findOne({urlOriginal : URL}).urlShortened;
+			var result = Meteor.Models.URL.findOne({urlOriginal : URL});
+			return (result == null)? null : result.urlShortened
 		}
 	};
 

@@ -4,6 +4,20 @@ Router.map(function(){
 	  path: '/'
 	});
 	this.route('notFound', {
-	  path: '*'
+	  path: '/notFound'
 	});
+	this.route('redirect', {
+	  path: '/:shortUrl',
+	  where: 'server',
+	  action: function() {
+		  var url = new Meteor.Libraries.URL();
+		  var shortURL = url.getOriginalURLForInput(this.params.shortUrl);
+		  if(shortURL != null) {
+			  this.response.writeHead(301, { Location : shortURL });
+			  this.response.end();
+		  } else {
+			  this.response.writeHead(301, { Location : '/notFound' });
+		  }
+	  }
+	}); 
 });

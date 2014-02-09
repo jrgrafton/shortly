@@ -57,7 +57,7 @@ Shortly = (function() {
 
 		__submitURL : function(url) {
 			// Call Meteor backend function
-			Meteor.call("URL__get_url_for_input", url, function(error, shortURL) {
+			Meteor.call("URL__get_short_url_for_input", url, function(error, shortURL) {
 				_this.__processResult(url, window.location.origin + '/' + shortURL);
 				_this.__activateResultsState();
         	});

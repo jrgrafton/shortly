@@ -163,7 +163,7 @@
     describe("Url shortening functionality", function () {
 	    var deferred = webdriver.promise.defer();
 
-        it("Will trigger an erronous state when an invalid URL is entered", function (done) {	
+	    it("Will trigger an erronous state when an invalid URL is entered", function (done) {	
 	        // @TODO: get this working via driver.wait without it RTD failing it				
 			setTimeout(function() {
 				driver.findElement(webdriver.By.css('#input-shorten')).click();
@@ -234,14 +234,29 @@
 
 			}, 2000);
 	    });
+        
+	    it("Will redirect to a URL when a valid short URL is entered", function (done) {				
+			setTimeout(function() {
+				driver.findElement(webdriver.By.css('#input-url')).sendKeys("http://google.co.uk");
+				driver.findElement(webdriver.By.css('#input-shorten')).click();
+				driver.findElements(webdriver.By.css('.url-shortened')).then(function(elements) {
+					var newTitle = "";
+					var originalURL = driver.getCurrentUrl();
+					elements.map(function(element) {
+						element.getText().then(function(value) {
+							driver.get(value);
+							driver.getTitle().then(function(title) {
+								newTitle = title;
+								driver.get(originalURL);
+								expect(newTitle).toBe("Google");
+								done();
+							});
+						})
+					})
+				});
 
-
-
-
-
-//        it("can have a more test here for this spec...", function (done) {
-//            finish(done);
-//        });
+			}, 2000);
+	    });
 
     });
 

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite name="Url shortening functionality 2" errors="0" tests="1" failures="1" time="0.518" timestamp="2013-12-29T22:19:29">
-  <testcase classname="Url shortening functionality 2" name="Will trigger a result state when a valid URL is entered" time="0.517"><failure>1: Expected undefined to be true.</failure></testcase>
-</testsuite>
-</testsuites>

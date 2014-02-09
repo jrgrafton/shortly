@@ -42,7 +42,7 @@ module.exports = {
             // src: []
         },
         coffeelint: {
-            enabled: true,
+            enabled: false,
             // if you want to customize coffeelint options for app and/or test code, you can do that here
             appOptions: {},
             testOptions: {}
