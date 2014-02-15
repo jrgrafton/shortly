@@ -6,5 +6,5 @@ Deps.autorun(function () {
 });
 
 Template.stats.urlCount = function () {
-  return Counts.findOne('0').count;
+  return (Counts.findOne('0') == undefined)? 0 : Counts.findOne('0').count;
 } 

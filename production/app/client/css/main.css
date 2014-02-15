@@ -37,6 +37,7 @@ table thead {
 .container.content {
 	max-width: 500px;
 	padding-top: 10%;
+	margin-bottom: 76px;
 }
 
 h1 {
@@ -83,7 +84,7 @@ hr {
 	border-top: 1px solid #666;
 	text-align: center;
 	color:white;
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 	width: 100%;
 }
