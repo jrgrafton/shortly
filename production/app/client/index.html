@@ -58,14 +58,17 @@
 	        </div>
 	    </div>
 	    <div class="footer">
-	        <div class="stats">
-		        <span class="url-count lobster">{{> stats}}</span>
-		        <span class="label">url(s) shortened to date</span>
-	        </div>
+			{{> stats}}	        
 	    </div>
 </template>
 
 
 <template name="stats">
-    {{urlCount}}
+  {{#if statsLoaded}}
+	<div class="stats animated fadeIn">
+		<span class="url-count lobster">{{urlCount}}</span>
+        <span class="label">url(s) shortened to date</span>
+	</div>
+  {{else}}
+  {{/if}}
 </template>
