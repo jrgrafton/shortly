@@ -1,16 +1,14 @@
 Shortly
 =======
 
-URL Shortener written in Meteor. 
+URL Shortener written in Meteor, with help from the following packages:
 
-# Objectives
+* [Iron Router](https://github.com/EventedMind/iron-router)
+* [RTD](https://github.com/xolvio/rtd)
+* [Twitter Bootstrap v3.0](http://getbootstrap.com/)
+* [Discover Meteor](https://www.discovermeteor.com/)
 
-Shortly was coded with the below express objectives:
+Big shout out to the folks over at [RTD](https://github.com/xolvio/rtd) who have 
+been especially responsive to all questions asked - thanks guys!
 
-* For me to learn Meteor
-    * TDD in Meteor
-    * CI in Meteor
-    * Best practices
-* To create an open source URL shortener in Meteor
-
-Enjoy!
+Shortly is now live, go check it out @ [http://s-y.co](http://s-y.co)
