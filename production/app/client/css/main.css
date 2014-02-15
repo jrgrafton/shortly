@@ -77,6 +77,38 @@ hr {
 	display: none;
 }
 
+.footer {
+	background-color: black;
+	height: 60px;
+	border-top: 1px solid #666;
+	text-align: center;
+	color:white;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+.footer .stats {
+	display: table;
+	height: 100%;
+	margin: auto;
+}
+
+.footer .stats .url-count {
+	font-size: 2.14285714285714285714em; /* 30px */
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.footer .stats .label {
+    font-family: 'Droid Serif', serif;
+	font-size: 1.14285714285714285714em; /* 16px */
+	font-weight: 100;
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: 100;
+}
+
 /********************************/
 /** ------ End specific ------ **/
 /********************************/

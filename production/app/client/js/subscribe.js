@@ -5,6 +5,6 @@ Deps.autorun(function () {
   Meteor.subscribe("url-count");
 });
 
-Template.urlInfo.count = function () {
+Template.stats.urlCount = function () {
   return Counts.findOne('0').count;
 } 

@@ -12,7 +12,7 @@
         <div class="row animated fadeIn">
 	        <div class="col-sm-12">
 		        <div class="strapline">
-		       		A URL shortener written in Meteor {{> urlInfo}}
+		       		A URL shortener written in Meteor
 		        </div>
 	        </div>
         </div>
@@ -57,10 +57,15 @@
 	        </div>
         </div>
     </div>
+    <div class="footer">
+        <div class="stats">
+	        <span class="url-count lobster">{{> stats}}</span>
+	        <span class="label">url(s) shortened to date</span>
+        </div>
+    </div>
 </template>
 
 
-<template name="urlInfo">
-	  Nested template
-    {{count}}
+<template name="stats">
+    {{urlCount}}
 </template>

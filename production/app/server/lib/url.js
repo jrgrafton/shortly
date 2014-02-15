@@ -14,7 +14,7 @@ Meteor.Libraries.URL = (function() {
 			if(!_this.__isShortenedAlready(input)) {
 				// Last generated URL (or 'aaa')
 				var lastURL = _this.__getLastURL();
-				var shortURL = _this.__getNextURL(lastURL);
+				var shortURL = (lastURL === null)? 'aaaaa' : _this.__getNextURL(lastURL);
 				_this.__storeURL(input, shortURL);
 			}
 			// Return result
@@ -60,7 +60,7 @@ Meteor.Libraries.URL = (function() {
 		},
 		__getLastURL : function() {
 			var lastURL = Meteor.Models.URL.find({}, {sort: {$natural:-1}, limit:1}).fetch();
-			return (lastURL.length === 0)? 'aaaaa' : lastURL[0].urlShortened;
+			return (lastURL.length === 0)? null : lastURL[0].urlShortened;
 		},
 		__storeURL : function(URL, shortURL) {
 			console.log("Insert: " + URL + " " + shortURL);
