@@ -48,7 +48,7 @@ module.exports = {
             testOptions: {}
         },
         // if you have client libraries, you'll want to exclude them from test coverage
-        instrumentationExcludes: ['**/packages/**', '**/3rd/**', 'fixture.js', 'fixture.coffee', '**/third-party/**'],
+        instrumentationExcludes: ['**/lib/router.js', '**/packages/**', '**/3rd/**', 'fixture.js', 'fixture.coffee', '**/third-party/**'],
         // If your dev environment has a stand-alone mongo service, you should disabled this
         killMongo: false
     },

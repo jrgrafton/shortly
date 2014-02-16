@@ -11,14 +11,6 @@
             expect(url).not.toBeNull();
         });
 
-        it("Can get next URL for input", function () {
-	      	var url = new Meteor.Libraries.URL();
-            expect(url.__getNextURL('aaaaa')).toBe('aaaab');
-            expect(url.__getNextURL('aaaa9')).toBe('aaab9');
-            expect(url.__getNextURL('a9999')).toBe('b9999');
-            expect( function(){ url.__getNextURL('99999'); } ).toThrow(new Error("No more short URLs available"));
-        });
-
         // @TODO: How to test functionality that interfaces with Meteor Collections?
         /* it("Can store and get original URL", function () {
 	        Url.remove({});

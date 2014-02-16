@@ -4,6 +4,7 @@
     jasmine.DEFAULT_TIMEOUT_INTERVAL = jasmine.getEnv().defaultTimeoutInterval = 20000;
 
     Template.stub('index');
+    Template.stub('stats');
     Template.stub('notFound');
 
     // Testing OO front end JS that does not modify UI elements
