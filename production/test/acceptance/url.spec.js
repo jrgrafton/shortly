@@ -173,7 +173,7 @@
 					expect('Error elements present').toBe('Error elements present');
 
 					// Cover failed branch
-					driver.findElement(webdriver.By.css('#input-url')).sendKeys("http://");
+					driver.findElement(webdriver.By.css('#input-url')).sendKeys("www.");
 					driver.findElement(webdriver.By.css('#input-shorten')).click();
 
 					// Try typing in field to ensure error is not visible

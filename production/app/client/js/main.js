@@ -14,6 +14,7 @@ Shortly = (function() {
 		constructor : Shortly,
 		__initObservers : function() {
 			$('form.shorten-url').on('submit', function() {
+				_this.__checkPrefixForURLField($('#input-url'));
 				_this.__processURL($('#input-url').val());
 				return false;
 			});
@@ -36,6 +37,13 @@ Shortly = (function() {
 		        e.src='//www.google-analytics.com/analytics.js';
 		        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 		        ga('create','UA-46740382-2');ga('send','pageview');
+			}
+		},
+
+		__checkPrefixForURLField : function(field) {
+			var fieldValue = $(field).val();
+			if(!/^(https?):\/\/.*/.test(fieldValue) && field.length > 0) {
+				$(field).val('http://' + fieldValue);
 			}
 		},
 
