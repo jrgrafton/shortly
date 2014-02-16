@@ -1,11 +1,11 @@
 Meteor.Libraries.URL = (function() {
 	"use strict"
-
 	var _this;
 	
 	function URL() {
 		_this = this;
 		_this.__setupMeteorMethods();
+		_this.base62 = new Base62();
 	};
 
 	URL.prototype = {
@@ -14,19 +14,16 @@ Meteor.Libraries.URL = (function() {
 			if(!_this.__isShortenedAlready(input)) {
 				// Last generated URL (or 'aaa')
 				var lastURL = _this.__getLastURL();
-				var shortURL = (lastURL === null)? 'aaaaa' : _this.__getNextURL(lastURL);
+				var shortURL = _this.base62.encode(Meteor.Models.URL.find({}).count());
 				_this.__storeURL(input, shortURL);
 			}
 			// Return result
 			return _this.__getShortURL(input);
 		},
-
 		getOriginalURLForInput : function(input) {
 			// Return result
 			return _this.__getOriginalURL(input); 
 		},
-		
-
 		__setupMeteorMethods : function() {
 			try {
 				Meteor.methods({
@@ -34,26 +31,6 @@ Meteor.Libraries.URL = (function() {
 				});
 			}
 			catch(e){}
-		},
-
-		__getNextURL : function(shortURL) {
-			// Available chars for tiny URL
-			var availableChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-			var lastAvailableChar = availableChars[availableChars.length - 1];
-
-			// Starting from end character rotate one and propgate change left
-			for(var i = (shortURL.length - 1); i >= 0; i--) {
-				var character = shortURL[i];
-				var availableCharsIndex = availableChars.indexOf(character);
-
-				// If character does not wrap just increase and return result
-				if(++availableCharsIndex < (availableChars.length - 1)) {
-					var sArray = shortURL.split("");
-					sArray[i] = availableChars[availableCharsIndex];
-					return sArray.join("");
-				}
-			}
-			throw new Error("No more short URLs available");
 		},
 		__isShortenedAlready : function(URL) {
 			return (Meteor.Models.URL.find({urlOriginal : URL}).count() === 1);
