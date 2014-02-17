@@ -14,12 +14,12 @@ Shortly = (function() {
 		constructor : Shortly,
 		__initObservers : function() {
 			$('form.shorten-url').on('submit', function() {
-				_this.__checkPrefixForURLField($('#input-url'));
 				_this.__processURL($('#input-url').val());
 				return false;
 			});
 
 			$('#input-url').on('change', function() {
+				_this.__checkPrefixForURLField($('#input-url'));
 				if(_this.__isValidURL($(this).val())) {
 					_this.__deactivateInvalidState();
 				} else {
@@ -91,8 +91,12 @@ Shortly = (function() {
 			}
 			var url = '<a href="' + url + '" target="_blank">' + url + '</a>';
 			var shortenedUrl = '<a href="' + shortenedUrl + '" target="_blank">' + shortenedUrl + '</a>';
-			var resultHTML = '<tr><td>' + url + '</td><td class="url-shortened">' + shortenedUrl + '</td><tr>';
+			var resultHTML = '<tr class="animated fadeIn"><td>' + url + '</td><td class="url-shortened">' + shortenedUrl + '</td><tr>';
 			$('.row.results .table tbody').prepend(resultHTML);
+			
+			$('html, body').animate({
+				scrollTop: $("#headerwrap form").offset().top
+			}, 400);
 		},
 		
 		__activateResultsState : function() {
