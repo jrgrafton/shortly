@@ -1,4 +1,22 @@
 /**************************/
+/** ---- Typography ---- **/
+/**************************/
+
+body, input, textarea {
+    font-family: 'Droid Sans', sans-serif;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.75;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+.lobster {
+	font-family: 'Lobster', serif;
+}
+
+/**************************/
 /** ------ Global ------ **/
 /**************************/
 html, body {
@@ -6,27 +24,7 @@ html, body {
 }
 
 body {
-    font-family: 'Droid Sans', serif;
-    font-size: 14px;
-	background-image: url('../img/bg.png');
-	background-repeat: repeat;
-	background-color: #E3E3E3;
-}
-
-.no-padding {
-	padding: 0px;
-}
-
-.no-padding-left {
-	padding-left: 0px;
-}
-
-.no-margin {
-	margin: 0px;
-}
-
-.lobster {
-	font-family: 'Lobster', serif;
+	background-color: #eaeaea;
 }
 
 table thead {
@@ -37,27 +35,108 @@ table thead {
 .container.content {
 	max-width: 500px;
 	padding-top: 10%;
+	padding-bottom: 4em; /* 60px */
 	margin-bottom: 76px;
-}
-
-h1 {
-    font-size: 4.28571428571428571429em; /* 60px */
 }
 
 /******************************/
 /** ------ End global ------ **/
 /******************************/
 
+/***************************************/
+/** ------ Bootstrap overrides ------ **/
+/***************************************/
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Droid Serif', sans-serif;
+    font-weight: 300;
+    color: #333;
+}
+
+h1 {
+	font-size: 2.857em; /* 40px */
+}
+
+h3 {
+	color: #95a5a6;
+	font-weight: 400;
+}
+
+h4 {
+	color: #95a5a6;
+	font-weight: 400;
+	font-size: 1.429em; /* 20px */
+}
+
+/* Links */
+a {
+    color: #3498db;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+hr {
+    border-top-color: #ccc;
+    border-bottom: 1px solid #fff;
+}
+
+/* Forms */
+
+input {
+	border-radius: 0px !important;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}
+
+/* Tables */
+
+.table-responsive {
+	width: 100%;
+	margin-bottom: 15px;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+.table > tbody > tr > td {
+	border-top: 1px solid #d1d1d1;
+}
+
+/*******************************************/
+/** ------ End bootstrap overrides ------ **/
+/*******************************************/
 
 /****************************/
 /** ------ Specific ------ **/
 /****************************/
 
-#input-shorten {
+.input-shorten {
 	width: 100%;
 }
 
-.visible-xs #input-shorten {
+.visible-xs .input-shorten {
 	margin-top: 5px;
 }
 
@@ -79,34 +158,31 @@ hr {
 }
 
 .footer {
+	font-family: 'Droid Serif', serif;
 	background-color: black;
-	height: 60px;
-	border-top: 1px solid #666;
+	height: 4.286em; /* 60px */
+	line-height: 4.286em; /* 60px */
 	text-align: center;
-	color:white;
+	color: #fff;
 	position: fixed;
 	bottom: 0px;
 	width: 100%;
-}
-
-.footer .stats {
-	display: table;
-	height: 100%;
-	margin: auto;
+	
+	border-top: 3px solid #fff;
+	border-top-color: rgba(255,255,255,0.0);
+	
+	-webkit-box-shadow: 0px -3px 0px rgba(255,255,255,0.3);
+	   -moz-box-shadow: 0px -3px 0px rgba(255,255,255,0.3);
+	    -ms-box-shadow: 0px -3px 0px rgba(255,255,255,0.3);
+	        box-shadow: 0px -3px 0px rgba(255,255,255,0.3);
 }
 
 .footer .stats .url-count {
-	font-size: 2.14285714285714285714em; /* 30px */
-	display: table-cell;
-	vertical-align: middle;
+	font-size: 2.143em; /* 30px */
 }
 
-.footer .stats .label {
-    font-family: 'Droid Serif', serif;
-	font-size: 1.14285714285714285714em; /* 16px */
-	font-weight: 100;
-	display: table-cell;
-	vertical-align: middle;
+.footer .stats .stats-label {
+	font-size: 1.143em; /* 16px */
 	font-weight: 100;
 }
 
@@ -115,57 +191,38 @@ hr {
 /********************************/
 
 /************************/
-/** ------ Logo ------ **/
+/** ------ Header ------ **/
 /************************/
-.logo, .strapline {
+
+#headerwrap {
 	text-align: center;
 }
 
-.logo {
-    font-family: 'Lobster', serif;
-    font-size: 4.28571428571428571429em; /* 60px */
+#headerwrap h1 {
+	font-family: "Lobster", serif;
+	font-size: 4em; /* 56px */
+	font-weight: 300;
+	letter-spacing: 1px;
+	margin-top: 1.5em; /* 28px */
+	margin-bottom: .25em; /* 14px */
+	
+	text-shadow: 0px 2px 1px #fff;
 }
 
-.strapline {
-    font-family: 'Droid Serif', serif;
-	font-size: 1.14285714285714285714em; /* 16px */
+#headerwrap h2 {
+	font-size: 1.75em;
+	margin-top:	0;
+
+	text-shadow: 0px 1px 0px #fff;
 }
 
-/****************************/
-/** ------ End logo ------ **/
-/****************************/
-
-
-/***************************************/
-/** ------ Bootstrap overrides ------ **/
-/***************************************/
-input {
-	border-radius: 0px !important;
+form.shorten-url .col-sm-3 {
+	padding-left: 0;
 }
 
-.form-group {
-	margin-bottom: 5px;
-}
-
-hr {
-	border-top: 1px solid #CCC;
-	margin: 10px 0px 10px 0px;
-}
-
-.table-responsive {
-	width: 100%;
-	margin-bottom: 15px;
-	overflow-x: auto;
-	overflow-y: hidden;
-}
-.table > tbody > tr > td {
-	border-top: 1px solid #d1d1d1;
-}
-
-/*******************************************/
-/** ------ End bootstrap overrides ------ **/
-/*******************************************/
-
+/*******************************/
+/** ------ End hedader ------ **/
+/*******************************/
 
 /******************************/
 /** ------ Animations ------ **/

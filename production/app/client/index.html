@@ -1,46 +1,43 @@
 <template name="index">
+	<div id="headerwrap">
 	    <!-- Add your site or application content here -->
 	    <div class="container content">
 	        <!-- 400px total width -->
 	        <div class="row animated fadeInDown">
 		        <div class="col-sm-12">
-			        <div class="logo">
-			        	Shortly
-			        </div>
+			        <h1 class="logo">Shortly</h1>
 		        </div>
 	        </div>		        
 	        <div class="row animated fadeIn">
 		        <div class="col-sm-12">
-			        <div class="strapline">
-			       		A URL shortener written in Meteor
-			        </div>
+			        <h2 class="strapline">A URL shortener written in Meteor</h2>
 		        </div>
 	        </div>
 	        <div class="row animated fadeIn">
 	        	<form role="form" class="shorten-url">
 			        <div class="col-sm-9">				        
 				        <div class="form-group">
-					        <input type="text" name="url" class="form-control" id="input-url" placeholder="URL to shorten">
+					        <input type="url" name="url" class="form-control input-lg" id="input-url" required placeholder="Enter URL to shorten">
 					    </div>
 			        </div>
-			        <div class="col-sm-3 hidden-xs no-padding-left">
+			        <div class="col-sm-3 hidden-xs">
 				        <div class="form-group">
-					        <input type="submit" class="btn btn-primary" id="input-shorten" value="Shorten">
+					        <input type="submit" class="btn btn-primary btn-lg input-shorten" value="Shorten">
 					    </div>	        
 			        </div>
 			        <div class="col-sm-12 error-label">
 				        <div class="form-group has-error">
-		        			<label class="error-label control-label" for="inputError">Please input a valid URL</label>
+		        			<label class="error-label control-label" for="input-url">Please input a valid URL</label>
 				        </div>
 			        </div>
 			        <div class="col-sm-12 visible-xs">
 				        <div class="form-group">
-					        <input type="submit" class="btn btn-primary" id="input-shorten" value="Shorten">
+					        <input type="submit" class="btn btn-primary btn-lg input-shorten" value="Shorten">
 					    </div>	        
 			        </div>
 		        </form>
 	        </div>
-	        <hr></hr>
+	        <hr>
 	        <div class="row results">
 		        <div class="col-sm-12">
 			        <div class="table-responsive">
@@ -60,6 +57,7 @@
 	    <div class="footer">
 			{{> stats}}	        
 	    </div>
+	</div>
 </template>
 
 
@@ -67,7 +65,7 @@
   {{#if statsLoaded}}
 	<div class="stats animated fadeIn">
 		<span class="url-count lobster">{{urlCount}}</span>
-        <span class="label">url(s) shortened to date</span>
+        <span class="stats-label">url(s) shortened to date</span>
 	</div>
   {{else}}
   {{/if}}

@@ -18,7 +18,7 @@ How to setup Shortly (OSX)
 * Install [Meteorite](https://github.com/oortcloud/meteorite)  ```npm install -g meteorite```	
 * Clone Shortly ```git clone git@github.com:jrgrafton/shortly.git```
 * Install Iron Router ```cd <clone-dir>/production/app;mrt add iron-router```
-* Launch Shortly ```cd <clone-dir>/production/;meteor```
+* Launch Shortly ```cd <clone-dir>/production/app;meteor```
 * Access via http://localhost:3000
 
 ...and, we're live!
